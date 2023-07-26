@@ -1,0 +1,42 @@
+* {
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    font-family: sans-serif;
+}
+
+
+.title {
+    display: flex;
+    justify-content: center;
+}
+
+.title img {
+    width: 30px;
+    object-fit: contain;
+}
+
+.title h1 {
+    font-size: 1.5em;
+}
+
+.calculator {
+    max-width: 300px;
+    margin: 0 auto;
+    background-color: #fff;
+    border: 5px solid #ccc;
+}
+
+.calculator__display {
+    padding: 10px;
+    font-size: 20px;
+    text-align: right;
+    border: 2px solid green;
+}
+
+.calculator__keys {
+    border: 2px solid green;
+    display: flex;
+}
