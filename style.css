@@ -94,6 +94,7 @@ body {
 
 .calculator__keys button:hover {
     background-color: #334155;
+    color: #0f172a;
 }
 
 .calculator__keys button:active {
@@ -125,9 +126,7 @@ body {
     background-color: #22c55e;
 }
 
-/* --- Delete Button Styling --- */
-
-
+/* --- Clear Button Styling --- */
 .calculator__keys>.clear {
     background-color: #dc2626;
     color: #0f172a;
@@ -135,6 +134,19 @@ body {
 
 .calculator__keys>.clear:hover {
     background-color: #ef4444;
+}
+
+/* --- Del and % Button Styling --- */
+.calculator__keys>.delete,
+.calculator__keys>.percentage {
+    background-color: #334155;
+    color: #0f172a;
+}
+
+.calculator__keys>.delete:hover,
+.calculator__keys>.percentage:hover {
+    background-color: #0f172a;
+    color: #334155;
 }
 
 /* --- Footer Styling --- */
