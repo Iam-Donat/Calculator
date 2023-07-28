@@ -1,6 +1,3 @@
-console.log('Hi, Its working 😊🫱🏾‍🫲🏾');
-
-
 // Getting HTML ELements
 const btns = document.querySelectorAll('.calculator button') // Get all buttons
 
@@ -21,23 +18,48 @@ const deleteBtn = document.querySelector('.delete');
 // Initialize default Value
 let firstOperand = '';
 let secondOperand = '';
-let currentOperand = '';
 let operation = '';
 
 // Functions
 function numValuesHandler(num) { // numbers value handler
-  console.log(num);
-  // to control the lengthof the number
-  if (firstOperand.length < 10 || operation === '') {
+  // console.log(num);
+  // to control the length of the number
+  if (firstOperand.length < 10) {
     firstOperand += num;
-  } else {
-    secondOperand += num;
   }
 }
 
 function operatorsHandler(operator) {
-  console.log(operator);
+  // console.log(operator);
   operation = operator;
+  secondOperand = firstOperand;
+  firstOperand = '';
+}
+
+function operationHandler() {
+
+  displayTop.textContent = `${secondOperand} ${operation}  ${firstOperand}`;
+
+  secondOperand = Number(secondOperand);
+  firstOperand = Number(firstOperand);
+
+  switch (operation) {
+    case '+':
+      secondOperand += firstOperand;
+      break;
+    case '-':
+      secondOperand -= firstOperand;
+      break;
+    case '*':
+      secondOperand *= firstOperand;
+      break;
+    case '/':
+      secondOperand /= firstOperand;
+      break;
+  }
+
+  displayBottom.textContent = secondOperand;
+
 }
 
 
@@ -46,57 +68,30 @@ numBtnValues.forEach(num => {
   num.addEventListener('click', (e) => {
     numValuesHandler(e.target.textContent);
 
-    displayTop.textContent = firstOperand;
+    displayBottom.textContent = firstOperand
+
+
   })
 });
 
 operatorBtn.forEach(operator => {
   operator.addEventListener('click', (e) => {
     operatorsHandler(e.target.textContent);
-    if (operation === '') {
-      currentOperand = firstOperand;
-      displayTop.textContent = `${currentOperand}  ${operation}`;
-    } else {
-      currentOperand = secondOperand;
-      displayTop.textContent = `${firstOperand}  ${operation} ${currentOperand}`;
-    }
+
+    displayTop.textContent = `${secondOperand}  ${operation}`;
+    displayBottom.textContent = firstOperand;
 
   })
 })
 
+clearBtn.addEventListener('click', () => {
+  firstOperand = '';
+  secondOperand = '';
+  operation = '';
+  displayTop.textContent = firstOperand;
+  displayBottom.textContent = firstOperand;
+});
 
-
-// Operations
-// function add(a, b) {
-//   return a + b
-// }
-
-// function substract(a, b) {
-//   return a - b
-// }
-
-// function multiply(a, b) {
-//   return a * b
-// }
-
-// function divide(a, b) {
-//   return a / b
-// }
-
-// function operate(operator, a, b) {
-//   a = Number(a)
-//   b = Number(b)
-//   switch (operator) {
-//     case '+':
-//       return add(a, b)
-//     case '−':
-//       return substract(a, b)
-//     case '*':
-//       return multiply(a, b)
-//     case '/':
-//       if (b === 0) return null
-//       else return divide(a, b)
-//     default:
-//       return null
-//   }
-// }
+equalBtn.addEventListener('click', () => {
+  operationHandler();
+});
