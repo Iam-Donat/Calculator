@@ -14,6 +14,7 @@ const decimalOp = document.querySelector('.decimal');
 const equalBtn = document.querySelector('.equal');
 const clearBtn = document.querySelector('.clear')
 const deleteBtn = document.querySelector('.delete');
+const percentage = document.querySelector('.percentage');
 
 // Initialize default Value
 let firstOperand = '';
@@ -24,7 +25,8 @@ let operation = '';
 function numValuesHandler(num) { // numbers value handler
   // console.log(num);
   // to control the length of the number
-  if (firstOperand.length < 10) {
+  const MAX_LENGTH = 10;
+  if (firstOperand.length < MAX_LENGTH) {
     firstOperand += num;
   }
 }
@@ -99,3 +101,11 @@ clearBtn.addEventListener('click', () => {
 equalBtn.addEventListener('click', () => {
   operationHandler();
 });
+
+deleteBtn.addEventListener('click', handleDelete);
+
+function handleDelete() {
+  firstOperand = firstOperand.slice(0, -1);
+  displayBottom.textContent = firstOperand;
+}
+
