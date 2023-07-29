@@ -54,6 +54,10 @@ function operationHandler() {
       secondOperand *= firstOperand;
       break;
     case '/':
+      if (firstOperand === 0) {
+        displayBottom.textContent = 'Error';
+        return;
+      }
       secondOperand /= firstOperand;
       break;
   }
