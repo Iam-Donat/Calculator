@@ -6,4 +6,4 @@
 
 ### Live Preview 🌐:
 
-Link 👉🏾 <a href="iam-ntwali.github.io/Calculator/" target="_blank">Click Here</a>
+Link 👉🏾 <a href="https://iam-ntwali.github.io/Calculator/" target="_blank">Click Here</a>
