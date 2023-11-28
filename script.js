@@ -109,6 +109,15 @@
 //   displayBottom.textContent = firstOperand;
 // }
 
+const countdownEl = document.getElementById('countdown');
+
+const updateCountdown = () => {
+  const countdownMessage = countdownToChristmas();
+  countdownEl.textContent = countdownMessage;
+};
+
+updateCountdown();
+setInterval(updateCountdown, 1000);
 
 function countdownToChristmas() {
   // Get today's date
